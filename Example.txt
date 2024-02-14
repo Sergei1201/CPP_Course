@@ -1,0 +1,15 @@
+Sergei Sokolov
+Daniil Sokolov
+Julia Soklova
+John Doe
+Jane Doe
+John Doe
+Jane Doe
+John Doe
+Jane Doe
+This is an example of writing to a file
+This is another example of writing to a file by appending information to it
+This is an example of writing to a file
+This is another example of writing to a file by appending information to it
+This is an example of writing to a file
+This is another example of writing to a file by appending information to it

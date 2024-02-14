@@ -36,19 +36,33 @@ int main()
     //     std::cout << arr1[i] << std::endl;
     //     i++;
     // } while (i < sizeof(arr1) / sizeof(arr1[0]));
+    // int i = 0;
+    // int j = 0;
+    // while (i < sizeof(arr2) / sizeof(arr2[0]))
+    // {
+    //     while (j < sizeof(arr2[0]) / sizeof(arr2[0][0]))
+    //     {
+    //         std::cout << arr2[i][j] << " ";
+    //         j++;
+    //     }
+    //     std::cout << std::endl;
+    //     i++;
+    //     j = 0;
+    // }
+
     int i = 0;
     int j = 0;
-    while (i < sizeof(arr2) / sizeof(arr2[0]))
+    // Using a do-while loop to iterate through a multidimensional array
+    do
     {
-        while (j < sizeof(arr2[0]) / sizeof(arr2[0][0]))
+        do
         {
             std::cout << arr2[i][j] << " ";
             j++;
-        }
+        } while (j < sizeof(arr2[0]) / arr2[0][0]);
         std::cout << std::endl;
         i++;
-        j = 0;
-    }
+    } while (i < sizeof(arr2) / sizeof(arr2[0]));
 
     return 0;
 }
