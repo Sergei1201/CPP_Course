@@ -1,9 +1,12 @@
 #include <iostream>
 #include <vector>
 #include <string>
-
+// Class definition
 class Person
 {
+private:
+    static int person_count;
+
 protected:
     // Declaring private data members
     std::string m_first_name{};
@@ -15,15 +18,26 @@ public:
     Person(std::string first_name, std::string last_name, int age)
         : m_first_name(first_name), m_last_name(last_name), m_age(age)
     {
+        person_count++;
     }
     // Default constructor
     Person() = default;
+    // Destructor
+    ~Person()
+    {
+        std::cout << "Destructor ran ..." << std::endl;
+        person_count--;
+    }
     // Defining setters & getters
     void set_name(std::string first_name, std::string last_name)
     {
         m_first_name = first_name;
         m_last_name = last_name;
         std::cout << std::endl;
+    }
+    static int get_person_count()
+    {
+        return person_count;
     }
     std::string get_name()
     {
@@ -44,6 +58,8 @@ public:
         }
     }
 };
+// Initializing person count static data member outside of the class itself
+int Person::person_count = 0;
 // Inheritance
 class Employee : public Person
 {
@@ -81,6 +97,7 @@ int main()
 {
     Person p1("Sergei", "Sokolov", 40);
     Person p2;
+
     std::cout << p1.get_name();
     p1.set_name("Daniil", "Sokolov");
     std::cout << p1.get_name();
@@ -91,5 +108,7 @@ int main()
     people.push_back(&p1);
     people.push_back(&e1);
     Person::information(people);
+    p1.~Person(); // Calling destructor on the p1 object
+    std::cout << Person::get_person_count() << std::endl;
     return 0;
 }
