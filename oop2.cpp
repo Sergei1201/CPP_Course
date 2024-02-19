@@ -86,17 +86,27 @@ public:
     {
         return m_department;
     }
-    // Polymorphism (rededining base classes' methods)
+    // Polymorphism (redefining base classes' methods)
     void full_info() override
     {
         std::cout << this->m_first_name << " " << this->m_last_name << " " << this->m_age << " " << m_department << std::endl;
     }
+    // Friend function inside of a class
+    friend void department_info(Employee employee);
 };
+
+// Function prototype
+void department_info(Employee employee)
+{
+    std::cout << employee.m_department;
+}
 
 int main()
 {
     Person p1("Sergei", "Sokolov", 40);
     Person p2;
+    Employee e3("Jane", "Doe", 35, "Business");
+    department_info(e3);
 
     std::cout << p1.get_name();
     p1.set_name("Daniil", "Sokolov");
